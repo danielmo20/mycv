@@ -11,7 +11,11 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatButtonModule } from "@angular/material/button";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import {MatTabsModule} from '@angular/material/tabs';
-
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule } from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { ContactService } from './contact/contact.component.service';
 
 @NgModule({
   declarations: [
@@ -28,9 +32,14 @@ import {MatTabsModule} from '@angular/material/tabs';
 	MatTabsModule,
 	FlexLayoutModule,
 	MatButtonModule,
-    BrowserAnimationsModule
+	MatFormFieldModule,
+	MatInputModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+	HttpClientModule
   ],
-  providers: [],
+  providers: [ContactService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
