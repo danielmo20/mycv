@@ -1,1 +1,36 @@
-<p>contact works!</p>
+
+ <div class="main-div">
+ 
+ <div class="example-container">
+ <p> Get in touch with me, say Hi or ask for anything</p>
+<form [formGroup]="contactForm" (submit)="submit()">
+  
+  <mat-form-field class="form-field" appearance="outline">
+	<mat-label> Full Name
+	</mat-label>
+	<input matInput formControlName="name" type="text" required>
+	<mat-error *ngIf="contactForm.controls.name.touched && contactForm.controls.name.invalid">
+	  <span *ngIf="contactForm.controls.name.errors.required">your name is required.</span>
+	</mat-error>
+  </mat-form-field>
+  
+  <mat-form-field class="form-field" appearance="outline">
+	<mat-label> E-mail
+	</mat-label>
+	<input matInput formControlName="email" required>
+	<mat-error *ngIf="contactForm.controls.email.touched && contactForm.controls.email.invalid">
+	  <span *ngIf="contactForm.controls.email.errors.required">email is required.</span>
+	  <span *ngIf="contactForm.controls.email.errors.pattern">email is invalid.</span>
+	</mat-error>
+  </mat-form-field>
+  
+  <mat-form-field class="form-field">
+    <mat-label>Leave a comment</mat-label>
+    <textarea matInput placeholder="..." formControlName="text"></textarea>
+  </mat-form-field>
+  
+  <button mat-raised-button color="primary" type="submit">Contact me</button>
+</form>
+  
+  </div>  
+  </div>

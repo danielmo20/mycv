@@ -1,1 +1,12 @@
-<p>social works!</p>
+ <div class="content" fxLayout="row wrap" fxLayoutGap="16px grid">
+  <div fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let page of pages">
+    <mat-card class="mat-elevation-z4">
+      <mat-card-header>
+        
+		<a href="{{page.url}}" target="blank"><img  src="{{page.icon}}" alt="{{page.alt}}"></a>
+		<mat-card-title>{{page.alt}}</mat-card-title>
+      </mat-card-header>     
+     </mat-card>  
+  </div>
+</div>
+
