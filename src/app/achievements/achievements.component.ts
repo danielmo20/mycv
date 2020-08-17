@@ -61,7 +61,7 @@ export class AchievementsComponent implements OnInit {
 			"text": "Implentación sistema de integración continua con Jenkins, Koghi SAS",
 			"when": "2013",
 			"where": "KOGHI"
-		},
+		}
 	];
   }  
   

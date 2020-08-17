@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-contact',
@@ -6,10 +8,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
+	
+	contactForm: FormGroup;
+	emailRegx = /^(([^<>+()\[\]\\.,;:\s@"-#$%&=]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,3}))$/;
 
-  constructor() { }
+  
+	constructor(private formBuilder: FormBuilder) { }
 
-  ngOnInit(): void {
-  }
+	ngOnInit(): void {
+		this.contactForm = this.formBuilder.group({
+			email: [null, [Validators.required, Validators.pattern(this.emailRegx)]],
+			name: [null, Validators.required],
+			comments: [null]
+		});
 
+	}
+
+	submit() {
+		if (!this.contactForm.valid) {
+			return;
+		}
+		console.log(this.contactForm.value);
+	}
+  
 }
